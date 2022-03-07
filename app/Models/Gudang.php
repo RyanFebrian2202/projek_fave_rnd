@@ -10,6 +10,10 @@ class Gudang extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama_gudang'
+        'nomor_gudang'
     ];
+
+    public function Ingredient(){
+        return $this->hasMany(Ingredient::class);
+    }
 }

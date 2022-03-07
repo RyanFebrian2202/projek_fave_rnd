@@ -12,4 +12,8 @@ class Ingredient extends Model
     protected $fillable = [
         'nama_barang', 'stock', 'merk', 'lokasi_barang', 'buy_date', 'expired_date'
     ];
+
+    public function gudang(){
+        return $this->hasOne(Gudang::class);
+    }
 }

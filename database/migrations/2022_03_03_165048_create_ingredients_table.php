@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('nama_barang');
             $table->integer('stock');
             $table->string('merk');
-            $table->string('lokasi_barang');
+            $table->unsignedBigInteger('lokasi_barang');
+            $table->foreign('lokasi_barang')->references('id')->on('ingredients')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->date('buy_date');
             $table->date('expired_date');
             $table->timestamps();
