@@ -14,6 +14,6 @@ class Gudang extends Model
     ];
 
     public function Ingredient(){
-        return $this->hasMany(Ingredient::class);
+        return $this->hasMany(Ingredient::class,'gudang_id');
     }
 }

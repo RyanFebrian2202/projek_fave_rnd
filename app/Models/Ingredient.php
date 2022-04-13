@@ -10,10 +10,10 @@ class Ingredient extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama_barang', 'stock', 'merk', 'lokasi_barang', 'buy_date', 'expired_date'
+        'nama_barang', 'stock', 'merk', 'gudang_id', 'buy_date', 'expired_date'
     ];
 
     public function gudang(){
-        return $this->hasOne(Gudang::class);
+        return $this->belongsTo(Gudang::class,'gudang_id','id');
     }
 }

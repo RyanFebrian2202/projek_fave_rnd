@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('nama_barang');
             $table->integer('stock');
             $table->string('merk');
-            $table->unsignedBigInteger('lokasi_barang');
-            $table->foreign('lokasi_barang')->references('id')->on('ingredients')
+            $table->unsignedBigInteger('gudang_id');
+            $table->foreign('gudang_id')->references('id')->on('gudangs')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->date('buy_date');
