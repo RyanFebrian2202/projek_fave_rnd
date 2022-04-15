@@ -27,10 +27,14 @@ class HomeController extends Controller
     }
 
     public function getRegisterPage(){
-        return view('register');
+        return view('authentication.register');
     }
 
     public function getLoginPage(){
-        return view('login');
+        return view('authentication.login');
+    }
+
+    public function getCreatePage(){
+        return view('');
     }
 }

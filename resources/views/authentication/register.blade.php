@@ -43,7 +43,7 @@
                         <input id="confirmpassword" type="password" name="password_confirmation" required>
                     </div>
                     <div class="register-bottom">
-                        <p>Already have an account? <span><a href="login.html">Log in</a></span></p>
+                        <p>Already have an account? <span><a href="{{route('getLoginPage')}}">Log in</a></span></p>
                         <button class="submitBtn"type=""submit>Create Account</button>
                     </div>
                 </div>

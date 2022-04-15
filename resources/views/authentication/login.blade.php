@@ -22,6 +22,7 @@
                 <h1>Hello Again!</h1>
             </div>
             <form action="{{route('login')}}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="register-form">
                     <div class="register-input">
                         <label for="username">Username</label>
@@ -34,7 +35,7 @@
                         <input id="password" type="password" name="password" required>
                     </div>
                     <div class="register-bottom">
-                        <p>Haven't registered yet? <span><a href="register.html">Create Account</a></span></p>
+                        <p>Haven't registered yet? <span><a href="{{route('getRegisterPage')}}">Create Account</a></span></p>
                         <button class="submitBtn" type="" submit>Login</button>
                     </div>
                 </div>
