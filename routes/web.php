@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
@@ -30,6 +31,7 @@ Route::get('/fourth',[Controller::class, 'fourthPage'])->name('fourthPage');
 // AUTHENTICATION PAGE
 Route::get('/registration',[Controller::class,'getRegisterPage'])->name('getRegisterPage');
 Route::get('/signin',[Controller::class,'getLoginPage'])->name('getLoginPage');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // ADMIN PAGE
 Route::group(['middleware' => userStatus::class], function () {

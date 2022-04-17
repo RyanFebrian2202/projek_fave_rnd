@@ -71,14 +71,14 @@
                                 <ul>
                                     <li>
                                         <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
-                                            href="ingredients.html">
+                                            href="{{route('getIngredientPage')}}">
                                             <img src="{{asset('assets/carbon_data-base.svg')}}" alt="">
                                             <span class="ml-5 mt-1">Ingredients</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
-                                            href="gudang.html">
+                                            href="{{route('getGudangPage')}}">
                                             <img src="{{asset('assets/tabler_building-warehouse.svg')}}" alt="">
                                             <span class="ml-5 mt-1">Gudang</span>
                                         </a>
@@ -89,7 +89,7 @@
                     </li>
                     <li>
                         <a class="w-full flex pl-10 py-5 hover:bg-[#E3CDC1] transition ease-in-out duration-500"
-                            href="">
+                            href="{{route('logout')}}">
                             <img src="{{asset('assets/carbon_logout.svg')}}" alt="">
                             <span class="ml-5 mt-2">Logout</span>
                         </a>
@@ -103,7 +103,7 @@
 
             <div class="flex justify-between w-[95%] pt-5">
                 <a href="" onclick="closeMenu()">
-                    <img src="{{asset('assets/Vector.svg')}}" alt="">
+
                 </a>
                 <a href="">
                     <img src="{{asset('assets/codicon_account.svg')}}" alt="">
@@ -124,7 +124,7 @@
                 <a class="text-base text-white px-5 py-1.5 bg-[#A0937D] rounded-md tracking-normal ml-2" href="">Exp in
                     7 Days</a>
                 <div class="flex ml-[67px]">
-                    <img class="" src="assets/logo/akar-icons_search.svg" alt="">
+                    <img class="" src="{{asset('assets/akar-icons_search.svg')}}" alt="">
                     <input type="search" name="" class="block w-56 px-3 py-1.5 text-base text-white bg-[#A0937D]/50 rounded transition ease-in-out
                     m-0 placeholder:text-white" placeholder="Search...">
                 </div>
@@ -170,31 +170,31 @@
             <div class="bg-[#A0937D] flex w-[853px] ml-10 px-5 py-5">
                 <p class="text-white pt-1.5">Page</p>
                 @if ($nomorTotal>30)
-                <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
-                    href="home.html">1</a>
-                <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
-                    href="table2.html">2</a>
-                <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
-                    href="table3.html">3</a>
-                <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
-                    href="table4.html">4</a>
+                    <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
+                    href="{{route('home')}}">1</a>
+                    <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
+                    href="{{route('secondPage')}}">2</a>
+                    <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
+                    href="{{route('thirdPage')}}">3</a>
+                    <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
+                    href="{{route('fourthPage')}}">4</a>
                 @elseif ($nomorTotal>20)
-                <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
-                    href="home.html">1</a>
-                <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
-                    href="table2.html">2</a>
-                <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
-                    href="table3.html">3</a>
+                    <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
+                    href="{{route('home')}}">1</a>
+                    <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
+                    href="{{route('secondPage')}}">2</a>
+                    <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
+                    href="{{route('thirdPage')}}">3</a>
                 @elseif ($nomorTotal>10)
-                <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
-                    href="home.html">1</a>
-                <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
-                    href="table2.html">2</a>
+                    <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
+                    href="{{route('home')}}">1</a>
+                    <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
+                    href="{{route('secondPage')}}">2</a>
                 @else
-                <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
-                    href="home.html">1</a>
+                    <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
+                    href="{{route('home')}}">1</a>
                 @endif
-                <p class="text-white pt-1.5 ml-72">Result 31 to {{$nomor}} of {{$nomorTotal}}</p>
+                <p class="text-white pt-1.5 ml-72">Result 1 to {{$nomor}} of {{$nomorTotal}}</p>
             </div>
 
             <!--npx tailwindcss -i ./css/input.css -o ./css/output.css --watch-->

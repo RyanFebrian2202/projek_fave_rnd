@@ -24,7 +24,7 @@
                 <div class="px-7 py-8 flex">
                     <div class="w-14 h-14 rounded-full bg-slate-600"></div>
                     <div class="ml-5">
-                        <h1 class="text-white text-base">{{Auth::User}}</h1>
+                        <h1 class="text-white text-base">{{Auth::User()->username}}</h1>
                         <p class="text-xs mt-2">User</p>
                     </div>
                 </div>
@@ -44,50 +44,50 @@
                         </a>
                     </li>
                     @if (Auth::check())
-                    <li>
-                        <div @click.away="open = false" class="relative hover:bg-[#E3CDC1]" x-data="{ open: false }">
-                            <input @click="open = !open" type="checkbox"
-                                class="absolute top-0 left-0 inset-x-0 w-full h-20 opacity-0 z-10 cursor-pointer">
-                            <a class="w-full flex pl-10 py-5" href="">
-                                <img src="{{asset('assets/carbon_user-admin.svg')}}" alt="">
-                                <span class="ml-5 mt-2">Admin</span>
-                                <img class="ml-14 transition-transform duration-300"
-                                    :class="{'rotate-180': open, 'rotate-0': !open}" src="{{asset('assets/ooui_next-ltr.svg')}}"
-                                    alt="">
-                            </a>
-                            <div x-show="open" x-transition:enter="transition-all duration-75"
-                                x-transition:enter-start="-mt-20 opacity-0"
-                                x-transition:enter-end="-mt-[0.5px] opacity-100"
-                                x-transition:leave="transition-all duration-75"
-                                x-transition:leave-start="-mt-[0.5px] opacity-100"
-                                x-transition:leave-end="-mt-20 opacity-0">
-                                <ul>
-                                    <li>
-                                        <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
-                                            href="ingredients.html">
-                                            <img src="{{asset('assets/carbon_data-base.svg')}}" alt="">
-                                            <span class="ml-5 mt-1">Ingredients</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
-                                            href="gudang.html">
-                                            <img src="{{asset('assets/tabler_building-warehouse.svg')}}" alt="">
-                                            <span class="ml-5 mt-1">Gudang</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                        <li>
+                            <div @click.away="open = false" class="relative hover:bg-[#E3CDC1]" x-data="{ open: false }">
+                                <input @click="open = !open" type="checkbox"
+                                    class="absolute top-0 left-0 inset-x-0 w-full h-20 opacity-0 z-10 cursor-pointer">
+                                <a class="w-full flex pl-10 py-5" href="">
+                                    <img src="{{asset('assets/carbon_user-admin.svg')}}" alt="">
+                                    <span class="ml-5 mt-2">Admin</span>
+                                    <img class="ml-14 transition-transform duration-300"
+                                        :class="{'rotate-180': open, 'rotate-0': !open}" src="{{asset('assets/ooui_next-ltr.svg')}}"
+                                        alt="">
+                                </a>
+                                <div x-show="open" x-transition:enter="transition-all duration-75"
+                                    x-transition:enter-start="-mt-20 opacity-0"
+                                    x-transition:enter-end="-mt-[0.5px] opacity-100"
+                                    x-transition:leave="transition-all duration-75"
+                                    x-transition:leave-start="-mt-[0.5px] opacity-100"
+                                    x-transition:leave-end="-mt-20 opacity-0">
+                                    <ul>
+                                        <li>
+                                            <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
+                                                href="{{route('getIngredientPage')}}">
+                                                <img src="{{asset('assets/carbon_data-base.svg')}}" alt="">
+                                                <span class="ml-5 mt-1">Ingredients</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
+                                                href="{{route('getGudangPage')}}">
+                                                <img src="{{asset('assets/tabler_building-warehouse.svg')}}" alt="">
+                                                <span class="ml-5 mt-1">Gudang</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="w-full flex pl-10 py-5 hover:bg-[#E3CDC1] transition ease-in-out duration-500"
-                            href="">
-                            <img src="{{asset('assets/carbon_logout.svg')}}" alt="">
-                            <span class="ml-5 mt-2">Logout</span>
-                        </a>
-                    </li>
-                @endif
+                        </li>
+                        <li>
+                            <a class="w-full flex pl-10 py-5 hover:bg-[#E3CDC1] transition ease-in-out duration-500"
+                                href="{{route('logout')}}">
+                                <img src="{{asset('assets/carbon_logout.svg')}}" alt="">
+                                <span class="ml-5 mt-2">Logout</span>
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -96,7 +96,7 @@
 
             <div class="flex justify-between w-[95%] pt-5">
                 <a href="" onclick="closeMenu()">
-                    <img src="{{asset('assets/Vector.svg')}}" alt="">
+
                 </a>
                 <a href="">
                     <img src="{{asset('assets/codicon_account.svg')}}" alt="">
@@ -108,7 +108,7 @@
             </div>
 
             <div class="flex mt-10">
-                <a class="text-base text-white px-5 py-1.5 bg-[#A0937D] rounded-md tracking-normal ml-10" href="">Create
+                <a class="text-base text-white px-5 py-1.5 bg-[#A0937D] rounded-md tracking-normal ml-10" href="{{route('getCreatePage')}}">Create
                     Data</a>
             </div>
 

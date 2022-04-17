@@ -64,14 +64,14 @@
                                     <ul>
                                         <li>
                                             <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
-                                                href="ingredients.html">
+                                                href="{{route('getIngredientPage')}}">
                                                 <img src="{{asset('assets/carbon_data-base.svg')}}" alt="">
                                                 <span class="ml-5 mt-1">Ingredients</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
-                                                href="gudang.html">
+                                                href="{{route('getGudangPage')}}">
                                                 <img src="{{asset('assets/tabler_building-warehouse.svg')}}" alt="">
                                                 <span class="ml-5 mt-1">Gudang</span>
                                             </a>
@@ -82,7 +82,7 @@
                         </li>
                         <li>
                             <a class="w-full flex pl-10 py-5 hover:bg-[#E3CDC1] transition ease-in-out duration-500"
-                                href="">
+                                href="{{route('logout')}}">
                                 <img src="{{asset('assets/carbon_logout.svg')}}" alt="">
                                 <span class="ml-5 mt-2">Logout</span>
                             </a>
@@ -96,7 +96,7 @@
 
             <div class="flex justify-between w-[95%] pt-5">
                 <a href="" onclick="closeMenu()">
-                    <img src="{{asset('assets/Vector.svg')}}" alt="">
+
                 </a>
                 <a href="">
                     <img src="{{asset('assets/codicon_account.svg')}}" alt="">
@@ -106,11 +106,7 @@
             <div class="mt-5">
                 <h1 class="text-4xl text-center">Gudang</h1>
             </div>
-
-            <div class="flex mt-10">
-                <a class="text-base text-white px-5 py-1.5 bg-[#A0937D] rounded-md tracking-normal ml-10" href="">Create
-                    Data</a>
-            </div>
+            <br>
 
             @foreach ($gudangs as $gudang)
                 <div @click.away="open = false" class="relative bg-[#A0937D] mt-5 ml-10 w-[86.5%] text-white"

@@ -63,7 +63,7 @@ class Controller extends BaseController
     }
 
     public function getCreatePage(){
-        return view('');
+        return view('admin.create');
     }
 
     public function getGudangPage(){
