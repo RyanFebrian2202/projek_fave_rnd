@@ -200,7 +200,7 @@
                     <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
                     href="{{route('home')}}">1</a>
                 @endif
-                <p class="text-white pt-1.5 ml-72">Result 1 to {{$nomor}} of {{$nomorTotal}}</p>
+                <p class="text-white pt-1.5 ml-72">Result 31 to {{$nomor}} of {{$nomorTotal}}</p>
             </div>
 
             <!--npx tailwindcss -i ./css/input.css -o ./css/output.css --watch-->

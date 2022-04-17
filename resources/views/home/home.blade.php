@@ -188,6 +188,7 @@
                     href="{{route('thirdPage')}}">3</a>
                     <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
                     href="{{route('fourthPage')}}">4</a>
+                    <p class="text-white pt-1.5 ml-72">Result 1 to 10 of {{$nomorTotal}}</p>
                 @elseif ($nomorTotal>20)
                     <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
                     href="{{route('home')}}">1</a>
@@ -195,16 +196,18 @@
                     href="{{route('secondPage')}}">2</a>
                     <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
                     href="{{route('thirdPage')}}">3</a>
+                    <p class="text-white pt-1.5 ml-72">Result 1 to 10 of {{$nomorTotal}}</p>
                 @elseif ($nomorTotal>10)
                     <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
                     href="{{route('home')}}">1</a>
                     <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
                     href="{{route('secondPage')}}">2</a>
+                    <p class="text-white pt-1.5 ml-72">Result 1 to 10 of {{$nomorTotal}}</p>
                 @else
                     <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
                     href="{{route('home')}}">1</a>
+                    <p class="text-white pt-1.5 ml-72">Result 1 to {{$nomor}} of {{$nomorTotal}}</p>
                 @endif
-                <p class="text-white pt-1.5 ml-72">Result 1 to {{$nomor}} of {{$nomorTotal}}</p>
             </div>
 
             <!--npx tailwindcss -i ./css/input.css -o ./css/output.css --watch-->

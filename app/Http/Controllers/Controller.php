@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gudang;
 use App\Models\Ingredient;
+use DateTime;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -38,11 +39,16 @@ class Controller extends BaseController
             $ingredients = Ingredient::where('gudang_id', 'like', request('gudang3'))->get();
         }
 
-        // if ($request->input('expired')) {
-        //     $now = time();
-        //     $expired = Ingredient::class->expired_date;
-        //     $ingredients = Ingredient::where('date');
-        // }
+        if ($request->input('expired')) {
+            // $ingredientss = Ingredient::all();
+
+            // // $to = \Carbon\Carbon::parse($ingredientss->expired_date);
+            // // $from = \Carbon\Carbon::parse(time());
+
+            // // $days = $to->diffInDays($from);
+
+            // $ingredients = Ingredient::where('DATEDIFF(day,', time(), ',', $ingredientss->expired_date,'<= 7')->get();
+        }
 
         return view('home.home',[
             'ingredients' => $ingredients,

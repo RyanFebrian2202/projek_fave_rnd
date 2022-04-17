@@ -166,7 +166,7 @@
                             <tr class="bg-[#E3CDC1]">
                                 <td class="py-3">{{$ingredient->name}}</td>
                                 <td class="py-3">{{$ingredient->stock}}</td>
-                                <td class="py-3">Gudang {{{{$ingredient->gudang_id}}}}</td>
+                                <td class="py-3">Gudang {{$ingredient->gudang_id}}</td>
                                 <td class="py-3">{{$ingredient->expired_date}}</td>
                             </tr>
                         @endif
@@ -184,6 +184,7 @@
                     href="{{route('thirdPage')}}">3</a>
                     <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
                     href="{{route('fourthPage')}}">4</a>
+                    <p class="text-white pt-1.5 ml-72">Result 11 to 20 of {{$nomorTotal}}</p>
                 @elseif ($nomorTotal>20)
                     <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
                     href="{{route('home')}}">1</a>
@@ -191,16 +192,17 @@
                     href="{{route('secondPage')}}">2</a>
                     <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
                     href="{{route('thirdPage')}}">3</a>
+                    <p class="text-white pt-1.5 ml-72">Result 11 to 20 of {{$nomorTotal}}</p>
                 @elseif ($nomorTotal>10)
                     <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
                     href="{{route('home')}}">1</a>
                     <a class="px-4 py-2 ml-3 hover:bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
                     href="{{route('secondPage')}}">2</a>
+                    <p class="text-white pt-1.5 ml-72">Result 11 to {{$nomor}} of {{$nomorTotal}}</p>
                 @else
                     <a class="px-4 py-2 ml-20 bg-[#E3CDC1] rounded-xl transition ease-in-out duration-500"
                     href="{{route('home')}}">1</a>
                 @endif
-                <p class="text-white pt-1.5 ml-72">Result 1 to {{$nomor}} of {{$nomorTotal}}</p>
             </div>
 
             <!--npx tailwindcss -i ./css/input.css -o ./css/output.css --watch-->
