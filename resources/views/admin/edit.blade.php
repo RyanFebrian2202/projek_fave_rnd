@@ -19,34 +19,39 @@
                 @method('patch')
                 <div class="flex text-base justify-between px-14">
                     <p class="mt-1">Name :</p>
-                    <input type="text" name="name" class="bg-[#E3CDC1] w-96 h-8">
+                    <input type="text" name="name" class="bg-[#E3CDC1] w-96 h-8" value="{{$ingredient->name}}">
                 </div>
 
                 <div class="flex text-base justify-between px-14 mt-5">
                     <p class="mt-1">Stock :</p>
-                    <input type="number" name="stock" class="bg-[#E3CDC1] w-96 h-8">
+                    <input type="number" name="stock" class="bg-[#E3CDC1] w-96 h-8" value="{{$ingredient->stock}}">
+                </div>
+
+                <div class="flex text-base justify-between px-14 mt-5">
+                    <p class="mt-1">Brand :</p>
+                    <input type="text" name="merk" class="bg-[#E3CDC1] w-96 h-8" value="{{$ingredient->merk}}">
                 </div>
 
                 <div class="flex text-base justify-between px-14 mt-5">
                     <p class="mt-1">Buy Date :</p>
-                    <input type="date" name="buy_date" class="bg-[#E3CDC1] w-96 h-8">
+                    <input type="date" name="buy_date" class="bg-[#E3CDC1] w-96 h-8" value="{{$ingredient->buy_date}}">
                 </div>
 
                 <div class="flex text-base justify-between px-14 mt-5">
                     <p class="mt-1">Exp Date :</p>
-                    <input type="date" name="expired_date" class="bg-[#E3CDC1] w-96 h-8">
+                    <input type="date" name="expired_date" class="bg-[#E3CDC1] w-96 h-8" value="{{$ingredient->expired_date}}">
                 </div>
 
                 <div class="flex text-base justify-between px-14 mt-5">
                     <p class="mt-1">Location :</p>
-                    <input type="text" name="gudang_id" class="bg-[#E3CDC1] w-96 h-8">
+                    <input type="text" name="gudang_id" class="bg-[#E3CDC1] w-96 h-8" value="{{$ingredient->gudang_id}}">
                 </div>
 
                 <div class="flex justify-between px-32">
                 <a href="{{route('getIngredientPage')}}">
-                    <button type="submit" class="mt-20 px-8 py-3 bg-[#E7D4B5] rounded-xl">Cancel</button>
+                    <button type="submit" class="mt-10 px-8 py-3 bg-[#A0937D] rounded-xl">Cancel</button>
                 </a>
-                    <button type="submit" class="mt-20 px-8 py-3 bg-[#A0937D] rounded-xl">Save Changes</button>
+                    <button type="submit" class="mt-10 px-8 py-3 bg-[#E7D4B5] rounded-xl">Save Changes</button>
                 </div>
             </form>
         </div>

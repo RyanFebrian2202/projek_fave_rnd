@@ -47,7 +47,7 @@ Route::group(['middleware' => userStatus::class], function () {
     Route::get('/admin/ingredient', [Controller::class, 'getIngredientPage'])->name('getIngredientPage');
 
     // DELETE INGREDIENT
-    Route::delete('/admin/delete-ingredient', [IngredientController::class, 'deleteIngredient'])->name('deleteIngredient');
+    Route::delete('/admin/delete-ingredient/{id}', [IngredientController::class, 'deleteIngredient'])->name('deleteIngredient');
 
     // GUDANG PAGE
     Route::get('/admin/gudang', [Controller::class, 'getGudangPage'])->name('getGudangPage');

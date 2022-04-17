@@ -10,7 +10,7 @@ class Ingredient extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama_barang', 'stock', 'merk', 'gudang_id', 'buy_date', 'expired_date'
+        'name', 'stock', 'merk', 'gudang_id', 'buy_date', 'expired_date'
     ];
 
     public function gudang(){

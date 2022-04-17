@@ -98,7 +98,7 @@
                 <a href="" onclick="closeMenu()">
 
                 </a>
-                <a href="">
+                <a href="{{route('getLoginPage')}}">
                     <img src="{{asset('assets/codicon_account.svg')}}" alt="">
                 </a>
             </div>
@@ -116,7 +116,7 @@
                     <a class="w-full flex pl-10 py-5" href="">
                         <span class="ml-5 text-base">Gudang {{$gudang->nomor_gudang}}</span>
                         <img class="ml-[650px] transition-transform duration-300"
-                            :class="{'rotate-180': open, 'rotate-0': !open}" src="assets/logo/ooui_next-ltr.svg" alt="">
+                            :class="{'rotate-180': open, 'rotate-0': !open}" src="{{asset('assets/ooui_next-ltr.svg')}}" alt="">
                     </a>
                     <div x-show="open" x-transition:enter="transition-all duration-75"
                         x-transition:enter-start="-mt-20 opacity-0" x-transition:enter-end="-mt-[0.5px] opacity-100"
@@ -133,7 +133,7 @@
                                                 <a href="{{route('getUpdatePage',['id'=>$ingredient->id])}}">
                                                     <img class="ml-5" src="{{asset('assets/edit.svg')}}" alt="">
                                                 </a>
-                                                <form action="{{route('deleteIngredient')}}" method="POST" enctype="multipart/form-data">
+                                                <form action="{{route('deleteIngredient',['id'=>$ingredient->id])}}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit">

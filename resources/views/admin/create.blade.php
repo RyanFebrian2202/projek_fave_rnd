@@ -23,7 +23,12 @@
 
                 <div class="flex text-base justify-between px-14 mt-5">
                     <p class="mt-1">Stock :</p>
-                    <input type="number" name="stock" class="bg-[#E3CDC1] w-96 h-8">
+                    <input type="numeric" name="stock" class="bg-[#E3CDC1] w-96 h-8">
+                </div>
+
+                <div class="flex text-base justify-between px-14 mt-5">
+                    <p class="mt-1">Brand :</p>
+                    <input type="text" name="merk" class="bg-[#E3CDC1] w-96 h-8">
                 </div>
 
                 <div class="flex text-base justify-between px-14 mt-5">
@@ -41,7 +46,7 @@
                     <input type="text" name="gudang_id" class="bg-[#E3CDC1] w-96 h-8">
                 </div>
 
-                <center><button type="submit" class="mt-20 px-8 py-3 bg-[#E7D4B5] rounded-xl">Upload Ingredients</button></center>
+                <center><button type="submit" class="mt-10 px-8 py-3 bg-[#E7D4B5] rounded-xl">Upload Ingredients</button></center>
             </form>
         </div>
     </div>

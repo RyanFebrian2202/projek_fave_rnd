@@ -98,7 +98,7 @@
                 <a href="" onclick="closeMenu()">
 
                 </a>
-                <a href="">
+                <a href="{{route('getLoginPage')}}">
                     <img src="{{asset('assets/codicon_account.svg')}}" alt="">
                 </a>
             </div>
@@ -126,22 +126,18 @@
                 </thead>
                 <tbody class="text-center">
                     @foreach ($ingredients as $ingredient)
-                    <?php
-                        $gudangID = $ingredient->gudang_id;
-                        $gudang = Gudang::findOrFail($gudangID);
-                    ?>
                         <tr class="bg-[#E3CDC1]">
                             <td class="py-3">{{$ingredient->name}}</td>
                             <td class="py-3">{{$ingredient->stock}}</td>
                             <td class="py-3">{{$ingredient->merk}}</td>
                             <td class="py-3">{{$ingredient->buy_date}}</td>
                             <td class="py-3">{{$ingredient->expired_date}}</td>
-                            <td class="py-3">Gudang {{$gudang->nomor_gudang}}</td>
+                            <td class="py-3">Gudang {{$ingredient->gudang_id}}</td>
                             <td class="flex py-3">
                                 <a href="{{route('getUpdatePage',['id'=>$ingredient->id])}}">
                                     <img class="ml-5" src="{{asset('assets/edit.svg')}}" alt="">
                                 </a>
-                                <form action="{{route('deleteIngredient')}}" method="POST" enctype="multipart/form-data">
+                                <form action="{{route('deleteIngredient',['id'=>$ingredient->id])}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('delete')
                                     <button type="submit">

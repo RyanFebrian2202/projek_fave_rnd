@@ -10,13 +10,14 @@ use PDO;
 class IngredientController extends Controller
 {
     public function createIngredient(IngredientRequest $request){
+
         Ingredient::create([
             'name' => $request -> name,
             'stock' => $request -> stock,
             'merk' => $request -> merk,
             'gudang_id' => $request -> gudang_id,
             'buy_date' => $request -> buy_date,
-            'expired_date' => $request -> expired_date,
+            'expired_date' => $request -> expired_date
         ]);
 
         return redirect(route('getIngredientPage'));
@@ -25,7 +26,7 @@ class IngredientController extends Controller
     public function getUpdatePage($id){
         $ingredient = Ingredient::findOrFail($id);
 
-        return view('',['ingredient'=> $ingredient]);
+        return view('admin.edit',['ingredient'=> $ingredient]);
     }
 
     public function updateIngredient(IngredientRequest $request, $id){
