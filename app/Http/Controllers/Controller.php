@@ -38,6 +38,12 @@ class Controller extends BaseController
             $ingredients = Ingredient::where('gudang_id', 'like', request('gudang3'))->get();
         }
 
+        // if ($request->input('expired')) {
+        //     $now = time();
+        //     $expired = Ingredient::class->expired_date;
+        //     $ingredients = Ingredient::where('date');
+        // }
+
         return view('home.home',[
             'ingredients' => $ingredients,
             'gudangs' => $gudangs

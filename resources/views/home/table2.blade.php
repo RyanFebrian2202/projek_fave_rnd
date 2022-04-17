@@ -115,18 +115,25 @@
             </div>
 
             <div class="flex mt-10">
-                <a class="text-base text-white px-5 py-1.5 bg-[#A0937D] rounded-md tracking-normal ml-10" href="">Gudang
-                    1</a>
-                <a class="text-base text-white px-5 py-1.5 bg-[#A0937D] rounded-md tracking-normal ml-2" href="">Gudang
-                    2</a>
-                <a class="text-base text-white px-5 py-1.5 bg-[#A0937D] rounded-md tracking-normal ml-2" href="">Gudang
-                    3</a>
-                <a class="text-base text-white px-5 py-1.5 bg-[#A0937D] rounded-md tracking-normal ml-2" href="">Exp in
-                    7 Days</a>
+                <form action="">
+                    <button type="submit" name="gudang1" value="1" class="text-base text-white px-5 py-1.5 bg-[#A0937D] rounded-md tracking-normal ml-10">
+                        Gudang 1
+                    </button>
+                    <button type="submit" name="gudang2" value="2" class="text-base text-white px-5 py-1.5 bg-[#A0937D] rounded-md tracking-normal ml-10">
+                        Gudang 2
+                    </button>
+                    <button type="submit" name="gudang3" value="3" class="text-base text-white px-5 py-1.5 bg-[#A0937D] rounded-md tracking-normal ml-10">
+                        Gudang 3
+                    </button>
+                    <button type="submit" name="expired" class="text-base text-white px-5 py-1.5 bg-[#A0937D] rounded-md tracking-normal ml-10">
+                        7 Days
+                    </button>
+                </form>
                 <div class="flex ml-[67px]">
-                    <img class="" src="{{asset('assets/akar-icons_search.svg')}}" alt="">
-                    <input type="search" name="" class="block w-56 px-3 py-1.5 text-base text-white bg-[#A0937D]/50 rounded transition ease-in-out
-                    m-0 placeholder:text-white" placeholder="Search...">
+                    <form action="" class="flex">
+                        <img class="" src="{{asset('assets/akar-icons_search.svg')}}" alt="">
+                        <input type="search" name="search" class="block w-56 px-3 py-1.5 text-base text-white bg-[#A0937D]/50 rounded transition ease-in-out m-0 placeholder:text-white" placeholder="Search...">
+                    </form>
                 </div>
             </div>
 
