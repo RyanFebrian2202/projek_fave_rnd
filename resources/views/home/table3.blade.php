@@ -33,6 +33,7 @@
                         <h1 class="text-white text-base">Quest</h1>
                         <p class="text-xs mt-2">User</p>
                     </div>
+                    @endif
                 </div>
             </div>
 
@@ -155,10 +156,7 @@
                             $gudang = Gudang::findOrFail($gudangID);
                             $nomor++;
                         ?>
-                        @if ($nomor>30)
-                            @endforeach
-                        @endif
-                        @if ($nomor>20)
+                        @if ($nomor>20 and $nomor<=30)
                             <tr class="bg-[#E3CDC1]">
                                 <td class="py-3">{{$ingredient->name}}</td>
                                 <td class="py-3">{{$ingredient->stock}}</td>

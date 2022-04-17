@@ -18,22 +18,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// HOME PAGE
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/second',[HomeController::class, 'secondPage'])->name('secondPage');
+Route::get('/third',[HomeController::class, 'thirdPage'])->name('thirdPage');
+Route::get('/fourth',[HomeController::class, 'fourthPage'])->name('fourthPage');
 
 // AUTHENTICATION PAGE
 Route::get('/register-page',[HomeController::class,'getRegisterPage'])->name('getRegisterPage');
 Route::get('/login-page',[HomeController::class,'getLoginPage'])->name('getLoginPage');
-
-Auth::routes();
-
-// HOME PAGE
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home/second',[HomeController::class, 'secondPage'])->name('secondPage');
-Route::get('/home/third',[HomeController::class, 'thirdPage'])->name('thirdPage');
-Route::get('/home/fourth',[HomeController::class, 'fourthPage'])->name('fourthPage');
-
 
 // ADMIN PAGE
 Route::group(['middleware' => userStatus::class], function () {
@@ -51,3 +44,5 @@ Route::group(['middleware' => userStatus::class], function () {
     // GUDANG PAGE
     Route::get('/admin/gudang', [HomeController::class, 'getGudangPage'])->name('getGudangPage');
 });
+
+Auth::routes();

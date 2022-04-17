@@ -18,5 +18,13 @@ class GudangSeeder extends Seeder
         DB::table('gudangs')->insert([
             'nomor_gudang' => 1,
         ]);
+
+        DB::table('gudangs')->insert([
+            'nomor_gudang' => 2,
+        ]);
+
+        DB::table('gudangs')->insert([
+            'nomor_gudang' => 3,
+        ]);
     }
 }

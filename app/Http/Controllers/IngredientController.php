@@ -11,10 +11,10 @@ class IngredientController extends Controller
 {
     public function createIngredient(IngredientRequest $request){
         Ingredient::create([
-            'nama_barang' => $request -> nama_barang,
+            'name' => $request -> name,
             'stock' => $request -> stock,
             'merk' => $request -> merk,
-            'lokasi_barang' => $request -> lokasi_barang,
+            'gudang_id' => $request -> gudang_id,
             'buy_date' => $request -> buy_date,
             'expired_date' => $request -> expired_date,
         ]);
@@ -32,10 +32,10 @@ class IngredientController extends Controller
         $ingredient = Ingredient::findOrFail($id);
 
         $ingredient->update([
-            'nama_barang' => $request -> nama_barang,
+            'name' => $request -> name,
             'stock' => $request -> stock,
             'merk' => $request -> merk,
-            'lokasi_barang' => $request -> lokasi_barang,
+            'gudang_id' => $request -> gudang_id,
             'buy_date' => $request -> buy_date,
             'expired_date' => $request -> expired_date,
         ]);

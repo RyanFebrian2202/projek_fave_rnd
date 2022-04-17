@@ -33,6 +33,7 @@
                             <h1 class="text-white text-base">Quest</h1>
                             <p class="text-xs mt-2">User</p>
                         </div>
+                    @endif
                 </div>
             </div>
 
@@ -155,15 +156,14 @@
                             $gudang = Gudang::findOrFail($gudangID);
                             $nomor++;
                         ?>
-                        @if ($nomor>10)
-                            @endforeach
+                        @if ($nomor<=10)
+                            <tr class="bg-[#E3CDC1]">
+                                <td class="py-3">{{$ingredient->name}}</td>
+                                <td class="py-3">{{$ingredient->stock}}</td>
+                                <td class="py-3">Gudang {{$gudang->nomor_gudang}}</td>
+                                <td class="py-3">{{$ingredient->expired_date}}</td>
+                            </tr>
                         @endif
-                        <tr class="bg-[#E3CDC1]">
-                            <td class="py-3">{{$ingredient->name}}</td>
-                            <td class="py-3">{{$ingredient->stock}}</td>
-                            <td class="py-3">Gudang {{$gudang->nomor_gudang}}</td>
-                            <td class="py-3">{{$ingredient->expired_date}}</td>
-                        </tr>
                     @endforeach
                 </tbody>
             </table>
