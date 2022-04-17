@@ -31,11 +31,11 @@ class Controller extends BaseController
         }
 
         if ($request->input('gudang2')) {
-            $ingredients = Ingredient::where('gudang_id', 'like', request('gudang1'))->get();
+            $ingredients = Ingredient::where('gudang_id', 'like', request('gudang2'))->get();
         }
 
         if ($request->input('gudang3')) {
-            $ingredients = Ingredient::where('gudang_id', 'like', request('gudang1'))->get();
+            $ingredients = Ingredient::where('gudang_id', 'like', request('gudang3'))->get();
         }
 
         return view('home.home',[

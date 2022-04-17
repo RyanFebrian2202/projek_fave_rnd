@@ -122,13 +122,10 @@
                         x-transition:enter-start="-mt-20 opacity-0" x-transition:enter-end="-mt-[0.5px] opacity-100"
                         x-transition:leave="transition-all duration-75" x-transition:leave-start="-mt-[0.5px] opacity-100"
                         x-transition:leave-end="-mt-20 opacity-0" class="text-black">
-                        <ul>
                             @foreach ($ingredients as $ingredient)
                                 @if ($ingredient->gudang_id == $gudang->id)
-                                    <li>
-                                        <a class="w-full flex justify-between pl-10 py-5 bg-[#E3CDC1] transition ease-in-out duration-500"
-                                            href="">
-                                            <span class="ml-5">{{$ingredient->name}}</span>
+                                <div class="w-full flex justify-between pl-10 py-5 bg-[#E3CDC1]">
+                                    <span class="ml-5">{{$ingredient->name}}</span>
                                             <div class="flex mr-10">
                                                 <a href="{{route('getUpdatePage',['id'=>$ingredient->id])}}">
                                                     <img class="ml-5" src="{{asset('assets/edit.svg')}}" alt="">
@@ -141,11 +138,9 @@
                                                     </button>
                                                 </form>
                                             </div>
-                                        </a>
-                                    </li>
+                                </div>
                                 @endif
                             @endforeach
-                        </ul>
                     </div>
                 </div>
             @endforeach
