@@ -108,6 +108,11 @@
                 <a href="">
                     <img src="{{asset('assets/codicon_account.svg')}}" alt="">
                 </a>
+                <script>
+                    function closeMenu(){
+                    document.getElementById('menu').style.display = 'none';
+                    }
+                </script>
             </div>
 
             <div class="mt-5">
@@ -205,11 +210,6 @@
         function openMenu() {
             document.getElementById('menu').style.display = 'block';
         }
-
-        function closeMenu() {
-            document.getElementById('menu').style.display = 'none';
-        }
-
     </script>
 </body>
 

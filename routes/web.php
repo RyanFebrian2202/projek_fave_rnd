@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Middleware\userStatus;
@@ -18,15 +19,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 // HOME PAGE
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/second',[HomeController::class, 'secondPage'])->name('secondPage');
-Route::get('/third',[HomeController::class, 'thirdPage'])->name('thirdPage');
-Route::get('/fourth',[HomeController::class, 'fourthPage'])->name('fourthPage');
+Route::get('/', [Controller::class, 'index'])->name('home');
+Route::get('/second',[Controller::class, 'secondPage'])->name('secondPage');
+Route::get('/third',[Controller::class, 'thirdPage'])->name('thirdPage');
+Route::get('/fourth',[Controller::class, 'fourthPage'])->name('fourthPage');
 
 // AUTHENTICATION PAGE
-Route::get('/register-page',[HomeController::class,'getRegisterPage'])->name('getRegisterPage');
-Route::get('/login-page',[HomeController::class,'getLoginPage'])->name('getLoginPage');
+Route::get('/registration',[Controller::class,'getRegisterPage'])->name('getRegisterPage');
+Route::get('/signin',[Controller::class,'getLoginPage'])->name('getLoginPage');
 
 // ADMIN PAGE
 Route::group(['middleware' => userStatus::class], function () {
@@ -44,5 +47,3 @@ Route::group(['middleware' => userStatus::class], function () {
     // GUDANG PAGE
     Route::get('/admin/gudang', [HomeController::class, 'getGudangPage'])->name('getGudangPage');
 });
-
-Auth::routes();
