@@ -36,7 +36,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 // ADMIN PAGE
 Route::group(['middleware' => userStatus::class], function () {
     // CREATE INGREDIENT
-    Route::get('/admin/ingredient/create-ingredient',[HomeController::class, 'getCreatePage'])->name('getCreatePage');
+    Route::get('/admin/ingredient/create-ingredient',[Controller::class, 'getCreatePage'])->name('getCreatePage');
     Route::post('/admin/ingredient/create-ingredient',[IngredientController::class, 'createIngredient'])->name('createIngredient');
 
     // EDIT INGREDIENT
@@ -44,8 +44,11 @@ Route::group(['middleware' => userStatus::class], function () {
     Route::patch('/admin/ingredient/edit-ingredient/{id}',[IngredientController::class, 'updateIngredient'])->name('updateIngredient');
 
     // INGREDIENT PAGE
-    Route::get('/admin/ingredient', [HomeController::class, 'getIngredientPage'])->name('getIngredientPage');
+    Route::get('/admin/ingredient', [Controller::class, 'getIngredientPage'])->name('getIngredientPage');
+
+    // DELETE INGREDIENT
+    Route::delete('/admin/delete-ingredient', [IngredientController::class, 'deleteIngredient'])->name('deleteIngredient');
 
     // GUDANG PAGE
-    Route::get('/admin/gudang', [HomeController::class, 'getGudangPage'])->name('getGudangPage');
+    Route::get('/admin/gudang', [Controller::class, 'getGudangPage'])->name('getGudangPage');
 });

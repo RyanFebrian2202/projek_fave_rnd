@@ -13,8 +13,8 @@
 <body class="font-Poppins bg-[#A0937D]">
     <div class="flex justify-center">
         <div class="w-[600px] h-[500px] bg-white mt-32">
-            <div class="flex justify-end mr-5 text-6xl cursor-pointer font-PJSLight"><a href="ingredients.html">&times;</a></div>
-            <form action="{{route('updateIngredient')}}" method="POST" class="mt-5" enctype="multipart/form-data">
+            <div class="flex justify-end mr-5 text-6xl cursor-pointer font-PJSLight"><a href="{{route('getIngredientPage')}}">&times;</a></div>
+            <form action="{{route('updateIngredient', ['id'=> $ingredient->id])}}" method="POST" class="mt-5" enctype="multipart/form-data">
                 @csrf
                 @method('patch')
                 <div class="flex text-base justify-between px-14">

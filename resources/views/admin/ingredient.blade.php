@@ -138,8 +138,16 @@
                             <td class="py-3">{{$ingredient->expired_date}}</td>
                             <td class="py-3">Gudang {{$gudang->nomor_gudang}}</td>
                             <td class="flex py-3">
-                                <img class="ml-5" src="{{asset('assets/edit.svg')}}" alt="">
-                                <img class="ml-5" src="{{asset('assets/delete.svg')}}" alt="">
+                                <a href="{{route('getUpdatePage',['id'=>$ingredient->id])}}">
+                                    <img class="ml-5" src="{{asset('assets/edit.svg')}}" alt="">
+                                </a>
+                                <form action="{{route('deleteIngredient')}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit">
+                                        <img class="ml-5" src="{{asset('assets/delete.svg')}}" alt="">
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
