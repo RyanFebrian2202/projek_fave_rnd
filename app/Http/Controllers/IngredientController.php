@@ -19,13 +19,7 @@ class IngredientController extends Controller
             'expired_date' => $request -> expired_date,
         ]);
 
-        return redirect(route(''));
-    }
-
-    public function readIngredient(){
-        $ingredients = Ingredient::all();
-
-        return view('', ['ingredients' => $ingredients]);
+        return redirect(route('getIngredientPage'));
     }
 
     public function getUpdatePage($id){
@@ -46,11 +40,11 @@ class IngredientController extends Controller
             'expired_date' => $request -> expired_date,
         ]);
 
-        return redirect(route(''));
+        return redirect(route('getIngredientPage'));
     }
 
     public function deleteIngredient($id){
         Ingredient::destroy($id);
-        return redirect(route(''));
+        return redirect(route('getIngredientPage'));
     }
 }

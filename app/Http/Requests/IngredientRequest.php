@@ -24,8 +24,8 @@ class IngredientRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama_barang' => ['required','max:255'],
-            'lokasi_barang' => ['required','max:255'],
+            'name' => ['required','max:255','unique:gudangs'],
+            'gudang_id' => ['required','integer','max:10','min:1'],
             'stock' => ['required','max:10000','numeric','min:0'],
             'merk' => ['required','max:255'],
             'buy_date' => ['required'],

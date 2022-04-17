@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gudang;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,6 +28,18 @@ class HomeController extends Controller
         return view('home.home');
     }
 
+    public function secondPage(){
+        return view('home.table2');
+    }
+
+    public function thirdPage(){
+        return view('home.table3');
+    }
+
+    public function fourthPage(){
+        return view('home.table4');
+    }
+
     public function getRegisterPage(){
         return view('authentication.register');
     }
@@ -36,5 +50,23 @@ class HomeController extends Controller
 
     public function getCreatePage(){
         return view('');
+    }
+
+    public function getGudangPage(){
+        $ingredients = Ingredient::all();
+        $gudangs = Gudang::all();
+
+        return view('admin.gudang', [
+            'ingredients' => $ingredients,
+            'gudangs' => $gudangs
+        ]);
+    }
+
+    public function getIngredientPage(){
+        $ingredients = Ingredient::all();
+
+        return view('admin.ingredient', [
+            'ingredients' => $ingredients
+        ]);
     }
 }

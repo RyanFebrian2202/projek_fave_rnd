@@ -38,20 +38,21 @@
                 <ul class="text-sm">
                     <li class="mt-3">
                         <a class="w-full flex pl-10 py-5 hover:bg-[#E3CDC1] transition ease-in-out duration-500"
-                            href="home.html">
-                            <img class="" src="assets/logo/ant-design_home-outlined.svg" alt="">
+                            href="{{route('home')}}">
+                            <img class="" src="{{asset('assets/ant-design_home-outlined.svg')}}" alt="">
                             <span class="ml-5 mt-2">Home</span>
                         </a>
                     </li>
+                    @if (Auth::check())
                     <li>
                         <div @click.away="open = false" class="relative hover:bg-[#E3CDC1]" x-data="{ open: false }">
                             <input @click="open = !open" type="checkbox"
                                 class="absolute top-0 left-0 inset-x-0 w-full h-20 opacity-0 z-10 cursor-pointer">
                             <a class="w-full flex pl-10 py-5" href="">
-                                <img src="assets/logo/carbon_user-admin.svg" alt="">
+                                <img src="{{asset('assets/carbon_user-admin.svg')}}" alt="">
                                 <span class="ml-5 mt-2">Admin</span>
                                 <img class="ml-14 transition-transform duration-300"
-                                    :class="{'rotate-180': open, 'rotate-0': !open}" src="assets/logo/ooui_next-ltr.svg"
+                                    :class="{'rotate-180': open, 'rotate-0': !open}" src="{{asset('assets/ooui_next-ltr.svg')}}"
                                     alt="">
                             </a>
                             <div x-show="open" x-transition:enter="transition-all duration-75"
@@ -64,14 +65,14 @@
                                     <li>
                                         <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
                                             href="ingredients.html">
-                                            <img src="assets/logo/carbon_data-base.svg" alt="">
+                                            <img src="{{asset('assets/carbon_data-base.svg')}}" alt="">
                                             <span class="ml-5 mt-1">Ingredients</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
                                             href="gudang.html">
-                                            <img src="assets/logo/tabler_building-warehouse.svg" alt="">
+                                            <img src="{{asset('assets/tabler_building-warehouse.svg')}}" alt="">
                                             <span class="ml-5 mt-1">Gudang</span>
                                         </a>
                                     </li>
@@ -82,10 +83,11 @@
                     <li>
                         <a class="w-full flex pl-10 py-5 hover:bg-[#E3CDC1] transition ease-in-out duration-500"
                             href="">
-                            <img src="assets/logo/carbon_logout.svg" alt="">
+                            <img src="{{asset('assets/carbon_logout.svg')}}" alt="">
                             <span class="ml-5 mt-2">Logout</span>
                         </a>
                     </li>
+                @endif
                 </ul>
             </div>
         </div>
@@ -94,10 +96,10 @@
 
             <div class="flex justify-between w-[95%] pt-5">
                 <a href="" onclick="closeMenu()">
-                    <img src="assets/logo/Vector.svg" alt="">
+                    <img src="{{asset('assets/Vector.svg')}}" alt="">
                 </a>
                 <a href="">
-                    <img src="assets/logo/codicon_account.svg" alt="">
+                    <img src="{{asset('assets/codicon_account.svg')}}" alt="">
                 </a>
             </div>
 
@@ -123,54 +125,24 @@
                     </tr>
                 </thead>
                 <tbody class="text-center">
-                    <tr class="bg-[#E3CDC1]">
-                        <td class="py-3">Wortel</td>
-                        <td class="py-3">20</td>
-                        <td class="py-3">ABC</td>
-                        <td class="py-3">01/09/2021</td>
-                        <td class="py-3">01/03/2022</td>
-                        <td class="py-3">Gudang 1</td>
-                        <td class="flex py-3">
-                            <img class="ml-6" src="assets/logo/edit.svg" alt="">
-                            <img class="ml-5" src="assets/logo/delete.svg" alt="">
-                        </td>
-                    </tr>
-                    <tr class="bg-[#A0937D]/50">
-                        <td class="py-3">Wortel</td>
-                        <td class="py-3">20</td>
-                        <td class="py-3">ABC</td>
-                        <td class="py-3">01/09/2021</td>
-                        <td class="py-3">01/03/2022</td>
-                        <td class="py-3">Gudang 1</td>
-                        <td class="flex py-3">
-                            <img class="ml-6" src="assets/logo/edit.svg" alt="">
-                            <img class="ml-5" src="assets/logo/delete.svg" alt="">
-                        </td>
-                    </tr>
-                    <tr class="bg-[#E3CDC1]">
-                        <td class="py-3">Wortel</td>
-                        <td class="py-3">20</td>
-                        <td class="py-3">ABC</td>
-                        <td class="py-3">01/09/2021</td>
-                        <td class="py-3">01/03/2022</td>
-                        <td class="py-3">Gudang 1</td>
-                        <td class="flex py-3">
-                            <img class="ml-6" src="assets/logo/edit.svg" alt="">
-                            <img class="ml-5" src="assets/logo/delete.svg" alt="">
-                        </td>
-                    </tr>
-                    <tr class="bg-[#A0937D]/50">
-                        <td class="py-3">Wortel</td>
-                        <td class="py-3">20</td>
-                        <td class="py-3">ABC</td>
-                        <td class="py-3">01/09/2021</td>
-                        <td class="py-3">01/03/2022</td>
-                        <td class="py-3">Gudang 1</td>
-                        <td class="flex py-3">
-                            <img class="ml-6" src="assets/logo/edit.svg" alt="">
-                            <img class="ml-5" src="assets/logo/delete.svg" alt="">
-                        </td>
-                    </tr>
+                    @foreach ($ingredients as $ingredient)
+                    <?php
+                        $gudangID = $ingredient->gudang_id;
+                        $gudang = Gudang::findOrFail($gudangID);
+                    ?>
+                        <tr class="bg-[#E3CDC1]">
+                            <td class="py-3">{{$ingredient->name}}</td>
+                            <td class="py-3">{{$ingredient->stock}}</td>
+                            <td class="py-3">{{$ingredient->merk}}</td>
+                            <td class="py-3">{{$ingredient->buy_date}}</td>
+                            <td class="py-3">{{$ingredient->expired_date}}</td>
+                            <td class="py-3">Gudang {{$gudang->nomor_gudang}}</td>
+                            <td class="flex py-3">
+                                <img class="ml-5" src="{{asset('assets/edit.svg')}}" alt="">
+                                <img class="ml-5" src="{{asset('assets/delete.svg')}}" alt="">
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
 

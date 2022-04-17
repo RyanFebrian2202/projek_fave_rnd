@@ -39,53 +39,55 @@
                     <li class="mt-3">
                         <a class="w-full flex pl-10 py-5 hover:bg-[#E3CDC1] transition ease-in-out duration-500"
                             href="{{route('home')}}">
-                            <img class="" src="assets/logo/ant-design_home-outlined.svg" alt="">
+                            <img class="" src="{{asset('assets/ant-design_home-outlined.svg')}}" alt="">
                             <span class="ml-5 mt-2">Home</span>
                         </a>
                     </li>
-                    <li>
-                        <div @click.away="open = false" class="relative hover:bg-[#E3CDC1]" x-data="{ open: false }">
-                            <input @click="open = !open" type="checkbox"
-                                class="absolute top-0 left-0 inset-x-0 w-full h-20 opacity-0 z-10 cursor-pointer">
-                            <a class="w-full flex pl-10 py-5" href="">
-                                <img src="assets/logo/carbon_user-admin.svg" alt="">
-                                <span class="ml-5 mt-2">Admin</span>
-                                <img class="ml-14 transition-transform duration-300"
-                                    :class="{'rotate-180': open, 'rotate-0': !open}" src="assets/logo/ooui_next-ltr.svg"
-                                    alt="">
-                            </a>
-                            <div x-show="open" x-transition:enter="transition-all duration-75"
-                                x-transition:enter-start="-mt-20 opacity-0"
-                                x-transition:enter-end="-mt-[0.5px] opacity-100"
-                                x-transition:leave="transition-all duration-75"
-                                x-transition:leave-start="-mt-[0.5px] opacity-100"
-                                x-transition:leave-end="-mt-20 opacity-0">
-                                <ul>
-                                    <li>
-                                        <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
-                                            href="ingredients.html">
-                                            <img src="assets/logo/carbon_data-base.svg" alt="">
-                                            <span class="ml-5 mt-1">Ingredients</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
-                                            href="gudang.html">
-                                            <img src="assets/logo/tabler_building-warehouse.svg" alt="">
-                                            <span class="ml-5 mt-1">Gudang</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                    @if (Auth::check())
+                        <li>
+                            <div @click.away="open = false" class="relative hover:bg-[#E3CDC1]" x-data="{ open: false }">
+                                <input @click="open = !open" type="checkbox"
+                                    class="absolute top-0 left-0 inset-x-0 w-full h-20 opacity-0 z-10 cursor-pointer">
+                                <a class="w-full flex pl-10 py-5" href="">
+                                    <img src="{{asset('assets/carbon_user-admin.svg')}}" alt="">
+                                    <span class="ml-5 mt-2">Admin</span>
+                                    <img class="ml-14 transition-transform duration-300"
+                                        :class="{'rotate-180': open, 'rotate-0': !open}" src="{{asset('assets/ooui_next-ltr.svg')}}"
+                                        alt="">
+                                </a>
+                                <div x-show="open" x-transition:enter="transition-all duration-75"
+                                    x-transition:enter-start="-mt-20 opacity-0"
+                                    x-transition:enter-end="-mt-[0.5px] opacity-100"
+                                    x-transition:leave="transition-all duration-75"
+                                    x-transition:leave-start="-mt-[0.5px] opacity-100"
+                                    x-transition:leave-end="-mt-20 opacity-0">
+                                    <ul>
+                                        <li>
+                                            <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
+                                                href="ingredients.html">
+                                                <img src="{{asset('assets/carbon_data-base.svg')}}" alt="">
+                                                <span class="ml-5 mt-1">Ingredients</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="w-full flex pl-10 py-5 bg-[#A0937D] hover:bg-[#E3CDC1]/50 transition ease-in-out duration-500"
+                                                href="gudang.html">
+                                                <img src="{{asset('assets/tabler_building-warehouse.svg')}}" alt="">
+                                                <span class="ml-5 mt-1">Gudang</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a class="w-full flex pl-10 py-5 hover:bg-[#E3CDC1] transition ease-in-out duration-500"
-                            href="">
-                            <img src="assets/logo/carbon_logout.svg" alt="">
-                            <span class="ml-5 mt-2">Logout</span>
-                        </a>
-                    </li>
+                        </li>
+                        <li>
+                            <a class="w-full flex pl-10 py-5 hover:bg-[#E3CDC1] transition ease-in-out duration-500"
+                                href="">
+                                <img src="{{asset('assets/carbon_logout.svg')}}" alt="">
+                                <span class="ml-5 mt-2">Logout</span>
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -94,10 +96,10 @@
 
             <div class="flex justify-between w-[95%] pt-5">
                 <a href="" onclick="closeMenu()">
-                    <img src="assets/logo/Vector.svg" alt="">
+                    <img src="{{asset('assets/Vector.svg')}}" alt="">
                 </a>
                 <a href="">
-                    <img src="assets/logo/codicon_account.svg" alt="">
+                    <img src="{{asset('assets/codicon_account.svg')}}" alt="">
                 </a>
             </div>
 
@@ -110,150 +112,39 @@
                     Data</a>
             </div>
 
-            <div @click.away="open = false" class="relative bg-[#A0937D] mt-5 ml-10 w-[86.5%] text-white"
-                x-data="{ open: false }">
-                <input @click="open = !open" type="checkbox"
-                    class="absolute top-0 left-0 inset-x-0 w-full h-20 opacity-0 z-10 cursor-pointer">
-                <a class="w-full flex pl-10 py-5" href="">
-                    <span class="ml-5 text-base">Gudang 1</span>
-                    <img class="ml-[650px] transition-transform duration-300"
-                        :class="{'rotate-180': open, 'rotate-0': !open}" src="assets/logo/ooui_next-ltr.svg" alt="">
-                </a>
-                <div x-show="open" x-transition:enter="transition-all duration-75"
-                    x-transition:enter-start="-mt-20 opacity-0" x-transition:enter-end="-mt-[0.5px] opacity-100"
-                    x-transition:leave="transition-all duration-75" x-transition:leave-start="-mt-[0.5px] opacity-100"
-                    x-transition:leave-end="-mt-20 opacity-0" class="text-black">
-                    <ul>
-                        <li>
-                            <a class="w-full flex justify-between pl-10 py-5 bg-[#E3CDC1] transition ease-in-out duration-500"
-                                href="">
-                                <span class="ml-5">Wortel</span>
-                                <div class="flex mr-10">
-                                    <img class="ml-5" src="assets/logo/edit.svg" alt="">
-                                    <img class="ml-5" src="assets/logo/delete.svg" alt="">
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="w-full flex justify-between pl-10 py-5 bg-[#A0937D]/50 transition ease-in-out duration-500"
-                                href="">
-                                <span class="ml-5">Kentang</span>
-                                <div class="flex mr-10">
-                                    <img class="ml-5" src="assets/logo/edit.svg" alt="">
-                                    <img class="ml-5" src="assets/logo/delete.svg" alt="">
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="w-full flex justify-between pl-10 py-5 bg-[#E3CDC1] transition ease-in-out duration-500"
-                                href="">
-                                <span class="ml-5">Pasta</span>
-                                <div class="flex mr-10">
-                                    <img class="ml-5" src="assets/logo/edit.svg" alt="">
-                                    <img class="ml-5" src="assets/logo/delete.svg" alt="">
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+            @foreach ($gudangs as $gudang)
+                <div @click.away="open = false" class="relative bg-[#A0937D] mt-5 ml-10 w-[86.5%] text-white"
+                    x-data="{ open: false }">
+                    <input @click="open = !open" type="checkbox"
+                        class="absolute top-0 left-0 inset-x-0 w-full h-20 opacity-0 z-10 cursor-pointer">
+                    <a class="w-full flex pl-10 py-5" href="">
+                        <span class="ml-5 text-base">Gudang {{$gudang->nomor_gudang}}</span>
+                        <img class="ml-[650px] transition-transform duration-300"
+                            :class="{'rotate-180': open, 'rotate-0': !open}" src="assets/logo/ooui_next-ltr.svg" alt="">
+                    </a>
+                    <div x-show="open" x-transition:enter="transition-all duration-75"
+                        x-transition:enter-start="-mt-20 opacity-0" x-transition:enter-end="-mt-[0.5px] opacity-100"
+                        x-transition:leave="transition-all duration-75" x-transition:leave-start="-mt-[0.5px] opacity-100"
+                        x-transition:leave-end="-mt-20 opacity-0" class="text-black">
+                        <ul>
+                            @foreach ($ingredients as $ingredient)
+                                @if ($ingredient->gudang_id == $gudang->id)
+                                    <li>
+                                        <a class="w-full flex justify-between pl-10 py-5 bg-[#E3CDC1] transition ease-in-out duration-500"
+                                            href="">
+                                            <span class="ml-5">{{$ingredient->name}}</span>
+                                            <div class="flex mr-10">
+                                                <img class="ml-5" src="{{asset('assets/edit.svg')}}" alt="">
+                                                <img class="ml-5" src="{{asset('assets/delete.svg')}}" alt="">
+                                            </div>
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
-            </div>
-
-            <div @click.away="open = false" class="relative bg-[#A0937D] mt-5 ml-10 w-[86.5%] text-white"
-                x-data="{ open: false }">
-                <input @click="open = !open" type="checkbox"
-                    class="absolute top-0 left-0 inset-x-0 w-full h-20 opacity-0 z-10 cursor-pointer">
-                <a class="w-full flex pl-10 py-5" href="">
-                    <span class="ml-5 text-base">Gudang 2</span>
-                    <img class="ml-[650px] transition-transform duration-300"
-                        :class="{'rotate-180': open, 'rotate-0': !open}" src="assets/logo/ooui_next-ltr.svg" alt="">
-                </a>
-                <div x-show="open" x-transition:enter="transition-all duration-75"
-                    x-transition:enter-start="-mt-20 opacity-0" x-transition:enter-end="-mt-[0.5px] opacity-100"
-                    x-transition:leave="transition-all duration-75" x-transition:leave-start="-mt-[0.5px] opacity-100"
-                    x-transition:leave-end="-mt-20 opacity-0" class="text-black">
-                    <ul>
-                        <li>
-                            <a class="w-full flex justify-between pl-10 py-5 bg-[#E3CDC1] transition ease-in-out duration-500"
-                                href="">
-                                <span class="ml-5">Wortel</span>
-                                <div class="flex mr-10">
-                                    <img class="ml-5" src="assets/logo/edit.svg" alt="">
-                                    <img class="ml-5" src="assets/logo/delete.svg" alt="">
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="w-full flex justify-between pl-10 py-5 bg-[#A0937D]/50 transition ease-in-out duration-500"
-                                href="">
-                                <span class="ml-5">Kentang</span>
-                                <div class="flex mr-10">
-                                    <img class="ml-5" src="assets/logo/edit.svg" alt="">
-                                    <img class="ml-5" src="assets/logo/delete.svg" alt="">
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="w-full flex justify-between pl-10 py-5 bg-[#E3CDC1] transition ease-in-out duration-500"
-                                href="">
-                                <span class="ml-5">Pasta</span>
-                                <div class="flex mr-10">
-                                    <img class="ml-5" src="assets/logo/edit.svg" alt="">
-                                    <img class="ml-5" src="assets/logo/delete.svg" alt="">
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div @click.away="open = false" class="relative bg-[#A0937D] mt-5 ml-10 w-[86.5%] text-white"
-                x-data="{ open: false }">
-                <input @click="open = !open" type="checkbox"
-                    class="absolute top-0 left-0 inset-x-0 w-full h-20 opacity-0 z-10 cursor-pointer">
-                <a class="w-full flex pl-10 py-5" href="">
-                    <span class="ml-5 text-base">Gudang 3</span>
-                    <img class="ml-[650px] transition-transform duration-300"
-                        :class="{'rotate-180': open, 'rotate-0': !open}" src="assets/logo/ooui_next-ltr.svg" alt="">
-                </a>
-                <div x-show="open" x-transition:enter="transition-all duration-75"
-                    x-transition:enter-start="-mt-20 opacity-0" x-transition:enter-end="-mt-[0.5px] opacity-100"
-                    x-transition:leave="transition-all duration-75" x-transition:leave-start="-mt-[0.5px] opacity-100"
-                    x-transition:leave-end="-mt-20 opacity-0" class="text-black">
-                    <ul>
-                        <li>
-                            <a class="w-full flex justify-between pl-10 py-5 bg-[#E3CDC1] transition ease-in-out duration-500"
-                                href="">
-                                <span class="ml-5">Wortel</span>
-                                <div class="flex mr-10">
-                                    <img class="ml-5" src="assets/logo/edit.svg" alt="">
-                                    <img class="ml-5" src="assets/logo/delete.svg" alt="">
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="w-full flex justify-between pl-10 py-5 bg-[#A0937D]/50 transition ease-in-out duration-500"
-                                href="">
-                                <span class="ml-5">Kentang</span>
-                                <div class="flex mr-10">
-                                    <img class="ml-5" src="assets/logo/edit.svg" alt="">
-                                    <img class="ml-5" src="assets/logo/delete.svg" alt="">
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="w-full flex justify-between pl-10 py-5 bg-[#E3CDC1] transition ease-in-out duration-500"
-                                href="">
-                                <span class="ml-5">Pasta</span>
-                                <div class="flex mr-10">
-                                    <img class="ml-5" src="assets/logo/edit.svg" alt="">
-                                    <img class="ml-5" src="assets/logo/delete.svg" alt="">
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
+            @endforeach
             <!--npx tailwindcss -i ./css/input.css -o ./css/output.css --watch-->
         </div>
     </div>
