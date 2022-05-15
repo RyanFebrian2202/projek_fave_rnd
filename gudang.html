@@ -75,9 +75,12 @@
         <div class="w-full ml-10">
     
             <div class="flex justify-between w-[95%] pt-5">
-                <a href="" onclick="closeMenu()">
+                <button class="hidden" id="openme" onclick="openMenu()">
                     <img src="assets/logo/Vector.svg" alt="">
-                </a>
+                </button>
+                <button id="closeme" onclick="closeMenu()">
+                    <img src="assets/logo/Vector.svg" alt="">
+                </button>
                 <a href="">
                     <img src="assets/logo/codicon_account.svg" alt="">
                 </a>
@@ -189,12 +192,16 @@
     </div>
 
     <script>
-         function openMenu(){
+function openMenu(){
     document.getElementById('menu').style.display = 'block';
+    document.getElementById('openme').style.display = 'none'
+    document.getElementById('closeme').style.display = 'block'
 }
 
 function closeMenu(){
     document.getElementById('menu').style.display = 'none';
+    document.getElementById('closeme').style.display = 'none'
+    document.getElementById('openme').style.display = 'block'
 }
     </script>
 </body>

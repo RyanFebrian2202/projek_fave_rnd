@@ -15,7 +15,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
     <div class="flex">
-            <div class="bg-[#A0937D] w-[26%] h-screen shadow-black drop-shadow-2xl overflow-hidden" id="menu">
+            <div class="bg-[#A0937D] w-[26%] h-screen shadow-black drop-shadow-2xl overflow-hidden hidden" id="menu">
                 <div class="w-full">
                     <div class="px-7 py-8 flex">
                         <div class="w-14 h-14 rounded-full bg-slate-600"></div>
@@ -75,17 +75,15 @@
         <div class="w-full ml-10">
     
             <div class="flex justify-between w-[95%] pt-5">
-                <a href="" onclick="closeMenu()">
+                <button class="hidden" id="openme" onclick="openMenu()">
                     <img src="assets/logo/Vector.svg" alt="">
-                </a>
+                </button>
+                <button id="closeme" onclick="closeMenu()">
+                    <img src="assets/logo/Vector.svg" alt="">
+                </button>
                 <a href="">
                     <img src="assets/logo/codicon_account.svg" alt="">
                 </a>
-                <script>
-                function closeMenu(){
-                document.getElementById('menu').style.display = 'none';
-                }
-                </script>
             </div>
     
             <div class="mt-5">
@@ -156,8 +154,16 @@
     </div>
 
     <script>
-         function openMenu(){
+function openMenu(){
     document.getElementById('menu').style.display = 'block';
+    document.getElementById('openme').style.display = 'none'
+    document.getElementById('closeme').style.display = 'block'
+}
+
+function closeMenu(){
+    document.getElementById('menu').style.display = 'none';
+    document.getElementById('closeme').style.display = 'none'
+    document.getElementById('openme').style.display = 'block'
 }
     </script>
 </body>
